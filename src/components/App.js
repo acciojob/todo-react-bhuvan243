@@ -3,16 +3,16 @@ import "./../styles/App.css";
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
-  const [todoList, setTodoList] = useState([{ id: 1, title: "React" }]);
+  const [todoList, setTodoList] = useState([]);
   function addTodo(event) {
     event.preventDefault();
-    let lastTodoId = todoList.length === 0 ? 0 : todoList[todoList.length - 1].id
+    let lastTodoId =
+      todoList.length === 0 ? 0 : todoList[todoList.length - 1].id;
     setTodoList([...todoList, { id: lastTodoId + 1, title: inputValue }]);
     setInputValue("");
   }
   function deleteTodo(todo) {
-    setTodoList(todoList.filter((item) => item.id!== todo.id));
-
+    setTodoList(todoList.filter((item) => item.id !== todo.id));
   }
   return (
     <div>
